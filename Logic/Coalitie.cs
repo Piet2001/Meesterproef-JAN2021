@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Interfaces.Logic;
 
 namespace Logic
 {
-    public class Coalitie
+    public class Coalitie : ICoalitie
     {
         public string Naam { get; }
         public string Premier { get; }
-        public IReadOnlyCollection<Partij> Partijen { get => _partijenInCoalitie.AsReadOnly(); }
+        public IReadOnlyCollection<IPartij> Partijen => _partijenInCoalitie.AsReadOnly();
 
         private List<Partij> _partijenInCoalitie;
 

@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Interfaces.Logic;
 
 namespace Logic
 {
-    public class Verkiezing
+    public class Verkiezing : IVerkiezing
     {
         public string Naam { get; }
         public DateTime Datum { get; }
         public int Zetels { get; }
-        public Coalitie Coalitie { get; }
+        public ICoalitie Coalitie { get; }
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
-        private int Vrijezetels => Zetels - _uitslag.Sum(x => x.Zetels);
+        private int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
 
         public Verkiezing(string naam, DateTime datum, int zetels)
         {
@@ -23,7 +23,7 @@ namespace Logic
 
         public bool AddUitslagregel(Partij partij, int stemmen, double percentage, int zetels)
         {
-            if (zetels <= Vrijezetels)
+            if (zetels <= VrijeZetels)
             {
                 if (_uitslag.Any(uitslagregel => uitslagregel.Partij.Orde == partij.Orde))
                 {

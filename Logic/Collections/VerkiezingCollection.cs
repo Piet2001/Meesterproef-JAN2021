@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logic.Collections
 {
@@ -8,7 +6,7 @@ namespace Logic.Collections
     {
         public void AddVerkiezing(string naam, DateTime datum, int zetels)
         {
-
+            var verkiezing = new Verkiezing(naam, datum, zetels);
         }
     }
 }
