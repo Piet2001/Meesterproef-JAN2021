@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Interfaces.Logic;
 
 namespace Logic
 {
-    public class Partij
+    public class Partij : IPartij
     {
         public string Orde { get; }
         public string Naam { get; }
