@@ -9,13 +9,13 @@ namespace DAL
     {
         private readonly string _connectionString = "Connectionstring";
 
-        public List<PartijDTO> GetAllProducts()
+        public List<PartijDTO> GetAllePartijen()
         {
             List<PartijDTO> Partijen = new List<PartijDTO>();
 
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
-                using (MySqlCommand query = new MySqlCommand("SELECT product.Id, product.Name, product.Price FROM product Order by product.Name", conn))
+                using (MySqlCommand query = new MySqlCommand("SELECT orde, naam, lijsttrekker FROM partij Order by orde", conn))
                 {
                     conn.Open();
 

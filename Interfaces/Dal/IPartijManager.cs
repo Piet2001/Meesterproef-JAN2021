@@ -5,6 +5,6 @@ namespace Interfaces.Dal
 {
     public interface IPartijManager
     {
-        public List<PartijDTO> GetAllProducts();
+        public List<PartijDTO> GetAllePartijen();
     }
 }
