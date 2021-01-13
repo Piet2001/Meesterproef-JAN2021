@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Logic
 {
-    public class Deelnemer
+    public class Uitslagregel
     {
         public Partij Partij { get; }
         public int Stemmen { get; }
         public double Percentage { get; }
         public int Zetels { get; }
 
-        public Deelnemer(Partij partij, int stemmen, double percentage, int zetels)
+        public Uitslagregel(Partij partij, int stemmen, double percentage, int zetels)
         {
             Partij = partij;
             Stemmen = stemmen;
