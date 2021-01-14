@@ -107,6 +107,7 @@ namespace View
             {
                 MessageBox.Show("Uitslag toegevoegd", "Succes");
                 Update_Verkiezing();
+                EmmtyInputVerkiezing();
             }
             else
             {
