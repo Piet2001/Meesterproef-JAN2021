@@ -46,5 +46,10 @@ namespace Logic
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return $"{Naam} - {Datum.ToShortDateString()}";
+        }
     }
 }

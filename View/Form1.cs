@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logic;
 using Logic.Collections;
 
 namespace View
@@ -15,16 +9,22 @@ namespace View
     {
         private PartijCollection _partijCollection = new PartijCollection();
         private VerkiezingCollection _verkiezingCollection = new VerkiezingCollection();
+
+        // huidige selectie voor uitslaginvoer
+        private Verkiezing huidigeVerkiezing;
+        private Partij Huidigepartij;
+
         public Form1()
         {
             InitializeComponent();
             Update_Partijen();
             _verkiezingCollection.AddVerkiezing();
+            cb_verkiezing.DataSource = _verkiezingCollection.GetAlleVerkiezingen();
         }
 
         private void bt_save_Click(object sender, EventArgs e)
         {
-            string orde =tb_Orde.Text;
+            string orde = tb_Orde.Text;
             string naam = tb_naam.Text;
             string lijsttrekker = tb_Lijsttrekker.Text;
 
@@ -63,6 +63,21 @@ namespace View
             tb_naam.Text = null;
         }
 
-        
+        private void cb_verkiezing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_verkiezing.SelectedItem is Verkiezing)
+            {
+                huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
+                nud_zetels.Maximum = huidigeVerkiezing.VrijeZetels;
+            }
+        }
+
+        private void cb_partijen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_partijen.SelectedItem is Partij)
+            {
+                Huidigepartij = cb_partijen.SelectedItem as Partij;
+            }
+        }
     }
 }

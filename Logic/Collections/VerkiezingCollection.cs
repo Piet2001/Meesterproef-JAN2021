@@ -13,5 +13,10 @@ namespace Logic.Collections
 
             //var verkiezing = new Verkiezing(naam, datum, zetels);
         }
+
+        public IReadOnlyCollection<Verkiezing> GetAlleVerkiezingen()
+        {
+            return verkiezingen;
+        }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
 using Interfaces.Dal;
 using Interfaces.DTO;
 
@@ -19,7 +17,7 @@ namespace Logic.Collections
 
         public IReadOnlyCollection<Partij> GetAllePartijen()
         {
-            List<PartijDTO> dtos = _partijManager.GetAllePartijen();
+            List<PartijDto> dtos = _partijManager.GetAllePartijen();
             List<Partij> partijen = new List<Partij>();
             foreach (var partijDto in dtos)
             {
