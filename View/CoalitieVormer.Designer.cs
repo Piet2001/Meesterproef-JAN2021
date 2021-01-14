@@ -1,7 +1,7 @@
 ﻿
 namespace View
 {
-    partial class Form1
+    partial class CoalitieVormer
     {
         /// <summary>
         ///  Required designer variable.
@@ -55,9 +55,9 @@ namespace View
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -327,6 +327,15 @@ namespace View
             this.tabPage3.Text = "Maak Coalitie";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // bt_add_coalitie
+            // 
+            this.bt_add_coalitie.Location = new System.Drawing.Point(690, 8);
+            this.bt_add_coalitie.Name = "bt_add_coalitie";
+            this.bt_add_coalitie.Size = new System.Drawing.Size(94, 29);
+            this.bt_add_coalitie.TabIndex = 13;
+            this.bt_add_coalitie.Text = "button1";
+            this.bt_add_coalitie.UseVisualStyleBackColor = true;
+            // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
@@ -344,23 +353,15 @@ namespace View
             this.label10.TabIndex = 11;
             this.label10.Text = "Uitslag";
             // 
-            // bt_add_coalitie
+            // CoalitieVormer
             // 
-            this.bt_add_coalitie.Location = new System.Drawing.Point(690, 8);
-            this.bt_add_coalitie.Name = "bt_add_coalitie";
-            this.bt_add_coalitie.Size = new System.Drawing.Size(94, 29);
-            this.bt_add_coalitie.TabIndex = 13;
-            this.bt_add_coalitie.Text = "button1";
-            this.bt_add_coalitie.UseVisualStyleBackColor = true;
-            // 
-            // Form1
-            // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "CoalitieVormer";
+            this.Text = "CoalitieVormer";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

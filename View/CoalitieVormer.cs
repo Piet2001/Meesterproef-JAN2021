@@ -5,7 +5,7 @@ using Logic.Collections;
 
 namespace View
 {
-    public partial class Form1 : Form
+    public partial class CoalitieVormer : Form
     {
         private PartijCollection _partijCollection = new PartijCollection();
         private VerkiezingCollection _verkiezingCollection = new VerkiezingCollection();
@@ -15,7 +15,7 @@ namespace View
         private Partij _huidigepartij;
         private Uitslagregel _huidigeUitslagregel;
 
-        public Form1()
+        public CoalitieVormer()
         {
             InitializeComponent();
             Update_Partijen();
