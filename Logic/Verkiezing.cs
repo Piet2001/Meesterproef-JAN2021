@@ -12,8 +12,10 @@ namespace Logic
         public int Zetels { get; }
         public ICoalitie Coalitie { get; }
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
+        public int CoalitieZetels => _geselecteerdeUitlsagen.Sum(x => x.Zetels);
 
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
+        private List<Uitslagregel> _geselecteerdeUitlsagen = new List<Uitslagregel>();
 
         public Verkiezing(string naam, DateTime datum, int zetels)
         {
@@ -42,10 +44,18 @@ namespace Logic
         {
             return _uitslag.OrderByDescending(x => x.Zetels).ToList();
         }
-
-        public bool CheckPossibleCoalitie(List<Uitslagregel> sellectedUitslagregels)
+        public IEnumerable<Uitslagregel> GetGeselecteerdeUitslagregels()
         {
-            throw new NotImplementedException();
+            return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
+        }
+        public bool SelectUitslagregel(Uitslagregel regel)
+        {
+            if (_geselecteerdeUitlsagen.Any(uitslagregel => uitslagregel.Partij.Orde == regel.Partij.Orde))
+            {
+                return false;
+            }
+            _geselecteerdeUitlsagen.Add(regel);
+            return true;
         }
 
         public override string ToString()

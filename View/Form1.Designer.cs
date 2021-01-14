@@ -55,6 +55,9 @@ namespace View
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,6 +65,7 @@ namespace View
             ((System.ComponentModel.ISupportInitialize)(this.nud_zetels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_percentage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_stemmen)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -117,7 +121,7 @@ namespace View
             this.bt_save.Location = new System.Drawing.Point(629, 119);
             this.bt_save.Name = "bt_save";
             this.bt_save.Size = new System.Drawing.Size(94, 29);
-            this.bt_save.TabIndex = 6;
+            this.bt_save.TabIndex = 3;
             this.bt_save.Text = "SAVE";
             this.bt_save.UseVisualStyleBackColor = true;
             this.bt_save.Click += new System.EventHandler(this.bt_save_Click);
@@ -127,21 +131,21 @@ namespace View
             this.tb_naam.Location = new System.Drawing.Point(92, 49);
             this.tb_naam.Name = "tb_naam";
             this.tb_naam.Size = new System.Drawing.Size(664, 27);
-            this.tb_naam.TabIndex = 5;
+            this.tb_naam.TabIndex = 1;
             // 
             // tb_Orde
             // 
             this.tb_Orde.Location = new System.Drawing.Point(92, 16);
             this.tb_Orde.Name = "tb_Orde";
             this.tb_Orde.Size = new System.Drawing.Size(664, 27);
-            this.tb_Orde.TabIndex = 4;
+            this.tb_Orde.TabIndex = 0;
             // 
             // tb_Lijsttrekker
             // 
             this.tb_Lijsttrekker.Location = new System.Drawing.Point(92, 85);
             this.tb_Lijsttrekker.Name = "tb_Lijsttrekker";
             this.tb_Lijsttrekker.Size = new System.Drawing.Size(664, 27);
-            this.tb_Lijsttrekker.TabIndex = 3;
+            this.tb_Lijsttrekker.TabIndex = 2;
             // 
             // label3
             // 
@@ -313,12 +317,41 @@ namespace View
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.bt_add_coalitie);
+            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(792, 415);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Maak Coalitie";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(80, 8);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(596, 28);
+            this.comboBox2.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 20);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Uitslag";
+            // 
+            // bt_add_coalitie
+            // 
+            this.bt_add_coalitie.Location = new System.Drawing.Point(690, 8);
+            this.bt_add_coalitie.Name = "bt_add_coalitie";
+            this.bt_add_coalitie.Size = new System.Drawing.Size(94, 29);
+            this.bt_add_coalitie.TabIndex = 13;
+            this.bt_add_coalitie.Text = "button1";
+            this.bt_add_coalitie.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -337,6 +370,8 @@ namespace View
             ((System.ComponentModel.ISupportInitialize)(this.nud_zetels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_percentage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_stemmen)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -369,6 +404,9 @@ namespace View
         private System.Windows.Forms.Button bt_saveUitslag;
         private System.Windows.Forms.Label lb_maxZetels;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button bt_add_coalitie;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label10;
     }
 }
 

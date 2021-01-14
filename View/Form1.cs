@@ -11,8 +11,9 @@ namespace View
         private VerkiezingCollection _verkiezingCollection = new VerkiezingCollection();
 
         // huidige selectie voor uitslaginvoer
-        private Verkiezing huidigeVerkiezing;
-        private Partij Huidigepartij;
+        private Verkiezing _huidigeVerkiezing;
+        private Partij _huidigepartij;
+        private Uitslagregel _huidigeUitslagregel;
 
         public Form1()
         {
@@ -66,9 +67,9 @@ namespace View
         private void Update_Verkiezing()
         {
             lsb_uitslagen.DataSource = null;
-            lsb_uitslagen.DataSource = huidigeVerkiezing.GetUitslagregels();
-            nud_zetels.Maximum = huidigeVerkiezing.VrijeZetels;
-            lb_maxZetels.Text = $"(max: {huidigeVerkiezing.VrijeZetels})";
+            lsb_uitslagen.DataSource = _huidigeVerkiezing.GetUitslagregels();
+            nud_zetels.Maximum = _huidigeVerkiezing.VrijeZetels;
+            lb_maxZetels.Text = $"(max: {_huidigeVerkiezing.VrijeZetels})";
         }
 
         private void EmmtyInputPartij()
@@ -82,7 +83,7 @@ namespace View
         {
             if (cb_verkiezing.SelectedItem is Verkiezing)
             {
-                huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
+                _huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
                 Update_Verkiezing();
             }
         }
@@ -91,7 +92,7 @@ namespace View
         {
             if (cb_partijen.SelectedItem is Partij)
             {
-                Huidigepartij = cb_partijen.SelectedItem as Partij;
+                _huidigepartij = cb_partijen.SelectedItem as Partij;
             }
         }
 
@@ -101,7 +102,7 @@ namespace View
             double percentage = (double)nud_percentage.Value;
             int zetels = (int) nud_zetels.Value;
 
-            bool updated = huidigeVerkiezing.AddUitslagregel(Huidigepartij, stemmen, percentage, zetels);
+            bool updated = _huidigeVerkiezing.AddUitslagregel(_huidigepartij, stemmen, percentage, zetels);
 
             if (updated)
             {
