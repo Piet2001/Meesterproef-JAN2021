@@ -11,16 +11,11 @@ namespace Logic
 
         private List<Partij> _partijenInCoalitie;
 
-        public Coalitie(string naam, string premier)
+        public Coalitie(string naam, string premier, List<Partij> coalitiePartijen)
         {
             Naam = naam;
             Premier = premier;
-            _partijenInCoalitie = new List<Partij>();
-        }
-
-        public void VoegPartijToeAanCoalitie(Partij partij)
-        {
-            _partijenInCoalitie.Add(partij);
+            _partijenInCoalitie = coalitiePartijen;
         }
     }
 }

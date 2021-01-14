@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Interfaces.Dal;
+using Interfaces.DTO;
 
 namespace Logic.Collections
 {
@@ -10,12 +10,21 @@ namespace Logic.Collections
 
         public bool AddPartij(string orde, string naam, string lijsttrekker)
         {
-            throw new NotImplementedException();
+            bool toegevoegd = _partijManager.AddPartij(new Partij(orde, naam, lijsttrekker));
+
+            return toegevoegd;
         }
 
         public IReadOnlyCollection<Partij> GetAllePartijen()
         {
-            throw new NotImplementedException();
+            List<PartijDto> dtos = _partijManager.GetAllePartijen();
+            List<Partij> partijen = new List<Partij>();
+            foreach (var partijDto in dtos)
+            {
+                partijen.Add(new Partij(partijDto.Orde, partijDto.Naam, partijDto.Lijsttrekker));
+            }
+
+            return partijen;
         }
     }
 }

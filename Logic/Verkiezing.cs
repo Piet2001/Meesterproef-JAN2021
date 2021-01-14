@@ -11,14 +11,26 @@ namespace Logic
         public DateTime Datum { get; }
         public int Zetels { get; }
         public ICoalitie Coalitie { get; }
+        public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
+        
+        private int _minzetels;
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
-        private int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
+        private List<Uitslagregel> _geselecteerdeUitlsagen = new List<Uitslagregel>();
 
         public Verkiezing(string naam, DateTime datum, int zetels)
         {
             Naam = naam;
             Datum = datum;
             Zetels = zetels;
+
+            if (zetels % 2 == 0)
+            {
+                _minzetels = Zetels / 2 + 1;
+            }
+            else
+            {
+                _minzetels = (int)Math.Ceiling(Zetels / 2.0);
+            }
         }
 
         public bool AddUitslagregel(Partij partij, int stemmen, double percentage, int zetels)
@@ -39,12 +51,31 @@ namespace Logic
 
         public IEnumerable<Uitslagregel> GetUitslagregels()
         {
-            return _uitslag;
+            return _uitslag.OrderByDescending(x => x.Zetels).ToList();
+        }
+        public IEnumerable<Uitslagregel> GetGeselecteerdeUitslagregels()
+        {
+            return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
+        }
+        public bool AddSelectedUitslagregel(Uitslagregel regel)
+        {
+            // partij staat nog niet tussen de geselecteerde
+            if (_geselecteerdeUitlsagen.Any(uitslagregel => uitslagregel.Partij.Orde == regel.Partij.Orde))
+            {
+                return false;
+            }
+            _geselecteerdeUitlsagen.Add(regel);
+            return true;
         }
 
-        public bool CheckPossibleCoalitie(List<Uitslagregel> sellectedUitslagregels)
+        public bool MinimaleAantalZetelsBehaald()
         {
-            throw new NotImplementedException();
+            return _minzetels <= _geselecteerdeUitlsagen.Sum(x => x.Zetels);
+        }
+
+        public override string ToString()
+        {
+            return $"{Naam} - {Datum.ToShortDateString()}";
         }
     }
 }

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{400CC543-E4D3-4222-87C0-9A1D232D54AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{8C6CC42D-8B18-4010-AF80-6AA1E94AFD74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factory", "Factory\Factory.csproj", "{8C6CC42D-8B18-4010-AF80-6AA1E94AFD74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{4DB04A4C-F80A-4078-8EA5-B1DBC162104A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8C6CC42D-8B18-4010-AF80-6AA1E94AFD74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6CC42D-8B18-4010-AF80-6AA1E94AFD74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6CC42D-8B18-4010-AF80-6AA1E94AFD74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB04A4C-F80A-4078-8EA5-B1DBC162104A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB04A4C-F80A-4078-8EA5-B1DBC162104A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB04A4C-F80A-4078-8EA5-B1DBC162104A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB04A4C-F80A-4078-8EA5-B1DBC162104A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
