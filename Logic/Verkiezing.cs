@@ -10,12 +10,12 @@ namespace Logic
         public string Naam { get; }
         public DateTime Datum { get; }
         public int Zetels { get; }
-        public ICoalitie Coalitie { get; }
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
 
         private int _minzetels;
+        private Coalitie Coalitie;
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
-        private List<Uitslagregel> _geselecteerdeUitlsagen = new List<Uitslagregel>();
+        private List<IUitslagregel> _geselecteerdeUitlsagen = new List<IUitslagregel>();
 
         public Verkiezing(string naam, DateTime datum, int zetels)
         {
@@ -53,7 +53,7 @@ namespace Logic
         {
             return _uitslag.OrderByDescending(x => x.Zetels).ToList();
         }
-        public IEnumerable<Uitslagregel> GetGeselecteerdeUitslagregels()
+        public IEnumerable<IUitslagregel> GetGeselecteerdeUitslagregels()
         {
             return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
         }
@@ -73,6 +73,21 @@ namespace Logic
             return _minzetels <= _geselecteerdeUitlsagen.Sum(x => x.Zetels);
         }
 
+        public bool MaakCoalitie()
+        {
+            if (MinimaleAantalZetelsBehaald())
+            {
+                Coalitie = new Coalitie("Test Coalitie", _geselecteerdeUitlsagen);
+                return true;
+            }
+
+            return false;
+        }
+
+        public Coalitie GetCoalitie()
+        {
+            return Coalitie;
+        }
         public override string ToString()
         {
             return $"{Naam} - {Datum.ToShortDateString()}";

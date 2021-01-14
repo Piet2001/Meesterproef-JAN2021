@@ -26,7 +26,7 @@ namespace View
 
         #endregion
 
-        #region Button
+        #region Buttons
         private void bt_save_Click(object sender, EventArgs e)
         {
             string orde = tb_Orde.Text;
@@ -86,9 +86,18 @@ namespace View
             }
         }
 
+        private void bt_save_coalitie_Click(object sender, EventArgs e)
+        {
+            if (_huidigeVerkiezing.MaakCoalitie())
+            {
+                Coalitie coalitie = _huidigeVerkiezing.GetCoalitie();
+                MessageBox.Show(coalitie.ToString());
+            }
+        }
+
         #endregion
 
-        #region ComboBox
+        #region ComboBoxes
         private void cb_verkiezing_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_verkiezing.SelectedItem is Verkiezing)

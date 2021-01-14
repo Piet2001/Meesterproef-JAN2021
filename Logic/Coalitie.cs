@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Interfaces.Logic;
 
 namespace Logic
@@ -9,13 +10,26 @@ namespace Logic
         public string Premier { get; }
         public IReadOnlyCollection<IPartij> Partijen => _partijenInCoalitie.AsReadOnly();
 
-        private List<Partij> _partijenInCoalitie;
+        private List<IPartij> _partijenInCoalitie = new List<IPartij>();
 
-        public Coalitie(string naam, string premier, List<Partij> coalitiePartijen)
+        public Coalitie(string naam, List<IUitslagregel> uitslagregelsVoorCoalitie)
         {
             Naam = naam;
-            Premier = premier;
-            _partijenInCoalitie = coalitiePartijen;
+            Premier = uitslagregelsVoorCoalitie.OrderByDescending(x => x.Zetels).First().Partij.Lijsttrekker;
+            foreach (var uitslagregel in uitslagregelsVoorCoalitie)
+            {
+                _partijenInCoalitie.Add(uitslagregel.Partij);
+            }
+        }
+
+        public override string ToString()
+        {
+            string partijenString = "";
+            foreach (var partij in Partijen)
+            {
+                partijenString += $"{partij.Orde}\n";
+            }
+            return $"Coalitie: {Naam}\n\nPremier: {Premier}\n\nPartijen:\n{partijenString}";
         }
     }
 }

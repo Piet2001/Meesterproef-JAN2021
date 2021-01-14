@@ -55,12 +55,12 @@ namespace View
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.bt_save_coalitie = new System.Windows.Forms.Button();
             this.lsb_Coalitie = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.cb_Uitslagregels = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.bt_save_coalitie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -333,6 +333,17 @@ namespace View
             this.tabPage3.Text = "Maak Coalitie";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // bt_save_coalitie
+            // 
+            this.bt_save_coalitie.Enabled = false;
+            this.bt_save_coalitie.Location = new System.Drawing.Point(690, 44);
+            this.bt_save_coalitie.Name = "bt_save_coalitie";
+            this.bt_save_coalitie.Size = new System.Drawing.Size(94, 29);
+            this.bt_save_coalitie.TabIndex = 16;
+            this.bt_save_coalitie.Text = "Save";
+            this.bt_save_coalitie.UseVisualStyleBackColor = true;
+            this.bt_save_coalitie.Click += new System.EventHandler(this.bt_save_coalitie_Click);
+            // 
             // lsb_Coalitie
             // 
             this.lsb_Coalitie.FormattingEnabled = true;
@@ -378,16 +389,6 @@ namespace View
             this.label10.Size = new System.Drawing.Size(55, 20);
             this.label10.TabIndex = 11;
             this.label10.Text = "Uitslag";
-            // 
-            // bt_save_coalitie
-            // 
-            this.bt_save_coalitie.Enabled = false;
-            this.bt_save_coalitie.Location = new System.Drawing.Point(690, 44);
-            this.bt_save_coalitie.Name = "bt_save_coalitie";
-            this.bt_save_coalitie.Size = new System.Drawing.Size(94, 29);
-            this.bt_save_coalitie.TabIndex = 16;
-            this.bt_save_coalitie.Text = "Save";
-            this.bt_save_coalitie.UseVisualStyleBackColor = true;
             // 
             // CoalitieVormer
             // 

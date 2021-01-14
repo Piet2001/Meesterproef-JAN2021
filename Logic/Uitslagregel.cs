@@ -1,13 +1,15 @@
-﻿namespace Logic
+﻿using Interfaces.Logic;
+
+namespace Logic
 {
-    public class Uitslagregel
+    public class Uitslagregel:IUitslagregel
     {
-        public Partij Partij { get; }
+        public IPartij Partij { get; }
         private int Stemmen { get; }
         private double Percentage { get; }
         public int Zetels { get; }
 
-        public Uitslagregel(Partij partij, int stemmen, double percentage, int zetels)
+        public Uitslagregel(IPartij partij, int stemmen, double percentage, int zetels)
         {
             Partij = partij;
             Stemmen = stemmen;
