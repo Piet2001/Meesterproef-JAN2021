@@ -31,6 +31,7 @@ namespace View
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lsb_Partijen = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bt_save = new System.Windows.Forms.Button();
             this.tb_naam = new System.Windows.Forms.TextBox();
@@ -40,10 +41,22 @@ namespace View
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lsb_Partijen = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_partijen = new System.Windows.Forms.ComboBox();
+            this.nud_stemmen = new System.Windows.Forms.NumericUpDown();
+            this.nud_percentage = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_stemmen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_percentage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -67,6 +80,15 @@ namespace View
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Partijen";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // lsb_Partijen
+            // 
+            this.lsb_Partijen.FormattingEnabled = true;
+            this.lsb_Partijen.ItemHeight = 20;
+            this.lsb_Partijen.Location = new System.Drawing.Point(8, 189);
+            this.lsb_Partijen.Name = "lsb_Partijen";
+            this.lsb_Partijen.Size = new System.Drawing.Size(763, 204);
+            this.lsb_Partijen.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -144,6 +166,15 @@ namespace View
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.numericUpDown3);
+            this.tabPage2.Controls.Add(this.nud_percentage);
+            this.tabPage2.Controls.Add(this.nud_stemmen);
+            this.tabPage2.Controls.Add(this.cb_partijen);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -152,14 +183,84 @@ namespace View
             this.tabPage2.Text = "Uitslagen";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lsb_Partijen
+            // label4
             // 
-            this.lsb_Partijen.FormattingEnabled = true;
-            this.lsb_Partijen.ItemHeight = 20;
-            this.lsb_Partijen.Location = new System.Drawing.Point(8, 189);
-            this.lsb_Partijen.Name = "lsb_Partijen";
-            this.lsb_Partijen.Size = new System.Drawing.Size(763, 204);
-            this.lsb_Partijen.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Partij";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Stemmen";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 20);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Percentage";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 117);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Zetels";
+            // 
+            // cb_partijen
+            // 
+            this.cb_partijen.FormattingEnabled = true;
+            this.cb_partijen.Location = new System.Drawing.Point(100, 12);
+            this.cb_partijen.Name = "cb_partijen";
+            this.cb_partijen.Size = new System.Drawing.Size(151, 28);
+            this.cb_partijen.TabIndex = 4;
+            // 
+            // nud_stemmen
+            // 
+            this.nud_stemmen.Location = new System.Drawing.Point(101, 47);
+            this.nud_stemmen.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nud_stemmen.Name = "nud_stemmen";
+            this.nud_stemmen.Size = new System.Drawing.Size(150, 27);
+            this.nud_stemmen.TabIndex = 5;
+            // 
+            // nud_percentage
+            // 
+            this.nud_percentage.Location = new System.Drawing.Point(100, 81);
+            this.nud_percentage.Name = "nud_percentage";
+            this.nud_percentage.Size = new System.Drawing.Size(150, 27);
+            this.nud_percentage.TabIndex = 6;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(100, 115);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDown3.TabIndex = 7;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(9, 163);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(775, 244);
+            this.listBox1.TabIndex = 8;
             // 
             // Form1
             // 
@@ -173,6 +274,11 @@ namespace View
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_stemmen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_percentage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -191,6 +297,15 @@ namespace View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.ListBox lsb_Partijen;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown nud_percentage;
+        private System.Windows.Forms.NumericUpDown nud_stemmen;
+        private System.Windows.Forms.ComboBox cb_partijen;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

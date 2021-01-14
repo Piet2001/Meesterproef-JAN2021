@@ -3,8 +3,8 @@
     public class Uitslagregel
     {
         public Partij Partij { get; }
-        public int Stemmen { get; }
-        public double Percentage { get; }
+        private int Stemmen { get; }
+        private double Percentage { get; }
         public int Zetels { get; }
 
         public Uitslagregel(Partij partij, int stemmen, double percentage, int zetels)
@@ -13,6 +13,11 @@
             Stemmen = stemmen;
             Percentage = percentage;
             Zetels = zetels;
+        }
+
+        public override string ToString()
+        {
+            return $"{Partij.Orde} - Stemmen: {Stemmen} - Percentage: {Percentage} - Zetels: {Zetels}";
         }
     }
 }

@@ -14,10 +14,12 @@ namespace View
     public partial class Form1 : Form
     {
         private PartijCollection _partijCollection = new PartijCollection();
+        private VerkiezingCollection _verkiezingCollection = new VerkiezingCollection();
         public Form1()
         {
             InitializeComponent();
-            Update_LSB_Partijen();
+            Update_Partijen();
+            _verkiezingCollection.AddVerkiezing();
         }
 
         private void bt_save_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace View
                 if (_partijCollection.AddPartij(orde, naam, lijsttrekker))
                 {
                     MessageBox.Show("Partij Toegevoegd", "Succes");
-                    Update_LSB_Partijen();
+                    Update_Partijen();
                     EmmtyInputPartij();
                 }
                 else
@@ -45,10 +47,13 @@ namespace View
             }
         }
 
-        private void Update_LSB_Partijen()
+        private void Update_Partijen()
         {
             lsb_Partijen.DataSource = null;
             lsb_Partijen.DataSource = _partijCollection.GetAllePartijen();
+
+            cb_partijen.DataSource = null;
+            cb_partijen.DataSource = _partijCollection.GetAllePartijen();
         }
 
         private void EmmtyInputPartij()
@@ -57,5 +62,7 @@ namespace View
             tb_Orde.Text = null;
             tb_naam.Text = null;
         }
+
+        
     }
 }
