@@ -102,6 +102,7 @@ namespace View
             this.lsb_Partijen.Name = "lsb_Partijen";
             this.lsb_Partijen.Size = new System.Drawing.Size(763, 204);
             this.lsb_Partijen.TabIndex = 2;
+            this.lsb_Partijen.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsb_Partijen_MouseDoubleClick);
             // 
             // groupBox1
             // 
@@ -352,6 +353,7 @@ namespace View
             this.lsb_Coalitie.Name = "lsb_Coalitie";
             this.lsb_Coalitie.Size = new System.Drawing.Size(775, 324);
             this.lsb_Coalitie.TabIndex = 15;
+            this.lsb_Coalitie.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsb_Coalitie_MouseDoubleClick);
             // 
             // label9
             // 
@@ -364,7 +366,7 @@ namespace View
             // 
             // bt_add_coalitie
             // 
-            this.bt_add_coalitie.Location = new System.Drawing.Point(690, 8);
+            this.bt_add_coalitie.Location = new System.Drawing.Point(690, 7);
             this.bt_add_coalitie.Name = "bt_add_coalitie";
             this.bt_add_coalitie.Size = new System.Drawing.Size(94, 29);
             this.bt_add_coalitie.TabIndex = 13;
@@ -377,7 +379,7 @@ namespace View
             this.cb_Uitslagregels.FormattingEnabled = true;
             this.cb_Uitslagregels.Location = new System.Drawing.Point(80, 8);
             this.cb_Uitslagregels.Name = "cb_Uitslagregels";
-            this.cb_Uitslagregels.Size = new System.Drawing.Size(596, 28);
+            this.cb_Uitslagregels.Size = new System.Drawing.Size(604, 28);
             this.cb_Uitslagregels.TabIndex = 12;
             this.cb_Uitslagregels.SelectedIndexChanged += new System.EventHandler(this.cb_Uitslagregels_SelectedIndexChanged);
             // 

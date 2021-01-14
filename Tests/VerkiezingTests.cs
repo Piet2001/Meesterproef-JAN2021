@@ -52,7 +52,7 @@ namespace Tests
             var verkiezing = new Verkiezing("UnitTestVerkiezing", new DateTime(2021, 01, 15), 150);
             var partij1 = new Partij("p1", "Partij Nummer 1", "Lijsttrekker 1");
             var uitslag = new Uitslagregel(partij1, 0, 0, 75);
-            verkiezing.AddSelectedUitslagregel(uitslag);
+            verkiezing.AddGeselecteerdeUitslagregel(uitslag);
 
             Assert.IsFalse(verkiezing.MinimaleAantalZetelsBehaald());
         }
@@ -63,7 +63,7 @@ namespace Tests
             var verkiezing = new Verkiezing("UnitTestVerkiezing", new DateTime(2021, 01, 15), 150);
             var partij1 = new Partij("p1", "Partij Nummer 1", "Lijsttrekker 1");
             var uitslag = new Uitslagregel(partij1, 0, 0, 76);
-            verkiezing.AddSelectedUitslagregel(uitslag);
+            verkiezing.AddGeselecteerdeUitslagregel(uitslag);
 
             Assert.IsTrue(verkiezing.MinimaleAantalZetelsBehaald());
         }
@@ -89,11 +89,34 @@ namespace Tests
             var verkiezing = new Verkiezing("UnitTestVerkiezing", new DateTime(2021, 01, 15), 150);
             var partij1 = new Partij("p1", "Partij Nummer 1", "Lijsttrekker 1");
             var partij2 = new Partij("p2", "Partij Nummer 2", "Lijsttrekker 2");
-            verkiezing.AddSelectedUitslagregel(new Uitslagregel(partij1, 0, 0, 40));
-            verkiezing.AddSelectedUitslagregel(new Uitslagregel(partij2, 0, 0, 41));
-            
-            Assert.IsTrue(verkiezing.MaakCoalitie());
-            //Assert.AreEqual(verkiezing.Coalitie.Premier, "Lijsttrekker 2");
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij1, 0, 0, 40));
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij2, 0, 0, 41));
+            verkiezing.MaakCoalitie();
+            Assert.AreEqual(verkiezing.GetCoalitie().Premier, "Lijsttrekker 2");
+        }
+
+        [TestMethod]
+        public void PremierVanGrootstePartij2()
+        {
+            var verkiezing = new Verkiezing("UnitTestVerkiezing", new DateTime(2021, 01, 15), 150);
+            var partij1 = new Partij("p1", "Partij Nummer 1", "Lijsttrekker 1");
+            var partij2 = new Partij("p2", "Partij Nummer 2", "Lijsttrekker 2");
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij1, 0, 0, 41));
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij2, 0, 0, 40));
+            verkiezing.MaakCoalitie();
+            Assert.AreEqual(verkiezing.GetCoalitie().Premier, "Lijsttrekker 1");
+        }
+
+        [TestMethod]
+        public void PremierNietVanNietGrootstePartij()
+        {
+            var verkiezing = new Verkiezing("UnitTestVerkiezing", new DateTime(2021, 01, 15), 150);
+            var partij1 = new Partij("p1", "Partij Nummer 1", "Lijsttrekker 1");
+            var partij2 = new Partij("p2", "Partij Nummer 2", "Lijsttrekker 2");
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij1, 0, 0, 41));
+            verkiezing.AddGeselecteerdeUitslagregel(new Uitslagregel(partij2, 0, 0, 42));
+            verkiezing.MaakCoalitie();
+            Assert.AreNotEqual(verkiezing.GetCoalitie().Premier, "Lijsttrekker 1");
         }
     }
 }

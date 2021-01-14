@@ -57,7 +57,7 @@ namespace Logic
         {
             return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
         }
-        public bool AddSelectedUitslagregel(Uitslagregel regel)
+        public bool AddGeselecteerdeUitslagregel(Uitslagregel regel)
         {
             // partij staat nog niet tussen de geselecteerde
             if (_geselecteerdeUitlsagen.Any(uitslagregel => uitslagregel.Partij.Orde == regel.Partij.Orde))
@@ -66,6 +66,11 @@ namespace Logic
             }
             _geselecteerdeUitlsagen.Add(regel);
             return true;
+        }
+
+        public void removeGeselecteerdUitslagregel(Uitslagregel regel)
+        {
+            _geselecteerdeUitlsagen.Remove(regel);
         }
 
         public bool MinimaleAantalZetelsBehaald()

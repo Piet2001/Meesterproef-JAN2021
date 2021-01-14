@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Logic;
 using Logic.Collections;
@@ -63,26 +64,30 @@ namespace View
             if (updated)
             {
                 MessageBox.Show("Uitslag toegevoegd", "Succes");
-                Update_Verkiezing();
-                EmmtyInputVerkiezing();
+            }
+            else if (_huidigeVerkiezing.GetUitslagregels().Any(x=>x.Partij.Orde == _huidigepartij.Orde))
+            {
+                DialogResult result = MessageBox.Show($"Weet U zeker dat u de uitslag van {_huidigepartij.Orde} wilt aanpassen",
+                    "waarschuwing", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    _huidigeUitslagregel.Update(stemmen, percentage, zetels);
+                }
             }
             else
             {
                 MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
             }
-
+            Update_Verkiezing();
+            EmmtyInputVerkiezing();
         }
 
         private void bt_add_coalitie_Click(object sender, EventArgs e)
         {
-            if (_huidigeVerkiezing.AddSelectedUitslagregel(_huidigeUitslagregel))
+            if (_huidigeVerkiezing.AddGeselecteerdeUitslagregel(_huidigeUitslagregel))
             {
                 MessageBox.Show("Uitslag toegevoegd", "Succes");
                 Update_Coalitie();
-            }
-            else
-            {
-                MessageBox.Show("Selectie kan niet worden toegevoegd!", "Error");
             }
         }
 
@@ -167,7 +172,22 @@ namespace View
             lsb_Coalitie.DataSource = _huidigeVerkiezing.GetGeselecteerdeUitslagregels();
             bt_save_coalitie.Enabled = _huidigeVerkiezing.MinimaleAantalZetelsBehaald();
         }
+
         #endregion
 
+        private void lsb_Partijen_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var partij = lsb_Partijen.SelectedItem as Partij;
+            tb_Orde.Text = partij.Orde;
+            tb_naam.Text = partij.Naam;
+            tb_Lijsttrekker.Text = partij.Lijsttrekker;
+        }
+
+        private void lsb_Coalitie_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var Uitslagregel = lsb_Coalitie.SelectedItem as Uitslagregel;
+            _huidigeVerkiezing.removeGeselecteerdUitslagregel(Uitslagregel);
+            Update_Coalitie();
+        }
     }
 }
