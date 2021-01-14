@@ -11,8 +11,9 @@ namespace Logic
         public DateTime Datum { get; }
         public int Zetels { get; }
         public ICoalitie Coalitie { get; }
-        private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
+
+        private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
 
         public Verkiezing(string naam, DateTime datum, int zetels)
         {

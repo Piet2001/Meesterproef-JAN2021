@@ -41,6 +41,7 @@ namespace View
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lb_maxZetels = new System.Windows.Forms.Label();
             this.bt_saveUitslag = new System.Windows.Forms.Button();
             this.cb_verkiezing = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@ namespace View
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lb_maxZetels = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,6 +68,7 @@ namespace View
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -191,6 +193,15 @@ namespace View
             this.tabPage2.Text = "Uitslagen";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lb_maxZetels
+            // 
+            this.lb_maxZetels.AutoSize = true;
+            this.lb_maxZetels.Location = new System.Drawing.Point(260, 149);
+            this.lb_maxZetels.Name = "lb_maxZetels";
+            this.lb_maxZetels.Size = new System.Drawing.Size(62, 20);
+            this.lb_maxZetels.TabIndex = 12;
+            this.lb_maxZetels.Text = "(max: 0)";
+            // 
             // bt_saveUitslag
             // 
             this.bt_saveUitslag.Location = new System.Drawing.Point(482, 84);
@@ -300,14 +311,14 @@ namespace View
             this.label4.TabIndex = 0;
             this.label4.Text = "Partij";
             // 
-            // lb_maxZetels
+            // tabPage3
             // 
-            this.lb_maxZetels.AutoSize = true;
-            this.lb_maxZetels.Location = new System.Drawing.Point(260, 149);
-            this.lb_maxZetels.Name = "lb_maxZetels";
-            this.lb_maxZetels.Size = new System.Drawing.Size(62, 20);
-            this.lb_maxZetels.TabIndex = 12;
-            this.lb_maxZetels.Text = "(max: 0)";
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(792, 415);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Maak Coalitie";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -357,6 +368,7 @@ namespace View
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button bt_saveUitslag;
         private System.Windows.Forms.Label lb_maxZetels;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
 

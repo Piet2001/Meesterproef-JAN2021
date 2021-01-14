@@ -68,7 +68,7 @@ namespace View
             lsb_uitslagen.DataSource = null;
             lsb_uitslagen.DataSource = huidigeVerkiezing.GetUitslagregels();
             nud_zetels.Maximum = huidigeVerkiezing.VrijeZetels;
-            lb_maxZetels.Text = $"(max: {huidigeVerkiezing.VrijeZetels}";
+            lb_maxZetels.Text = $"(max: {huidigeVerkiezing.VrijeZetels})";
         }
 
         private void EmmtyInputPartij()
@@ -83,7 +83,7 @@ namespace View
             if (cb_verkiezing.SelectedItem is Verkiezing)
             {
                 huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
-                nud_zetels.Maximum = huidigeVerkiezing.VrijeZetels;
+                Update_Verkiezing();
             }
         }
 
