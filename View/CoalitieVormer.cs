@@ -7,6 +7,7 @@ namespace View
 {
     public partial class CoalitieVormer : Form
     {
+        #region Init
         private PartijCollection _partijCollection = new PartijCollection();
         private VerkiezingCollection _verkiezingCollection = new VerkiezingCollection();
 
@@ -23,6 +24,9 @@ namespace View
             cb_verkiezing.DataSource = _verkiezingCollection.GetAlleVerkiezingen();
         }
 
+        #endregion
+
+        #region Button
         private void bt_save_Click(object sender, EventArgs e)
         {
             string orde = tb_Orde.Text;
@@ -48,6 +52,59 @@ namespace View
             }
         }
 
+        private void bt_saveUitslag_Click(object sender, EventArgs e)
+        {
+            int stemmen = (int)nud_stemmen.Value;
+            double percentage = (double)nud_percentage.Value;
+            int zetels = (int)nud_zetels.Value;
+
+            bool updated = _huidigeVerkiezing.AddUitslagregel(_huidigepartij, stemmen, percentage, zetels);
+
+            if (updated)
+            {
+                MessageBox.Show("Uitslag toegevoegd", "Succes");
+                Update_Verkiezing();
+                EmmtyInputVerkiezing();
+            }
+            else
+            {
+                MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
+            }
+
+        }
+
+        #endregion
+
+        #region ComboBox
+        private void cb_verkiezing_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_verkiezing.SelectedItem is Verkiezing)
+            {
+                _huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
+                Update_Verkiezing();
+            }
+        }
+
+        private void cb_partijen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_partijen.SelectedItem is Partij)
+            {
+                _huidigepartij = cb_partijen.SelectedItem as Partij;
+            }
+        }
+
+        private void cb_Uitslagregels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_Uitslagregels.SelectedItem is Uitslagregel)
+            {
+                _huidigeUitslagregel = cb_Uitslagregels.SelectedItem as Uitslagregel;
+            }
+
+        }
+
+        #endregion
+
+        #region Updates
         private void Update_Partijen()
         {
             lsb_Partijen.DataSource = null;
@@ -79,42 +136,7 @@ namespace View
             tb_naam.Text = null;
         }
 
-        private void cb_verkiezing_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_verkiezing.SelectedItem is Verkiezing)
-            {
-                _huidigeVerkiezing = cb_verkiezing.SelectedItem as Verkiezing;
-                Update_Verkiezing();
-            }
-        }
+        #endregion
 
-        private void cb_partijen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_partijen.SelectedItem is Partij)
-            {
-                _huidigepartij = cb_partijen.SelectedItem as Partij;
-            }
-        }
-
-        private void bt_saveUitslag_Click(object sender, EventArgs e)
-        {
-            int stemmen = (int)nud_stemmen.Value;
-            double percentage = (double)nud_percentage.Value;
-            int zetels = (int) nud_zetels.Value;
-
-            bool updated = _huidigeVerkiezing.AddUitslagregel(_huidigepartij, stemmen, percentage, zetels);
-
-            if (updated)
-            {
-                MessageBox.Show("Uitslag toegevoegd", "Succes");
-                Update_Verkiezing();
-                EmmtyInputVerkiezing();
-            }
-            else
-            {
-                MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
-            }
-
-        }
     }
 }

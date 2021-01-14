@@ -56,8 +56,10 @@ namespace View
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.bt_add_coalitie = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cb_Uitslagregels = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lsb_Coalitie = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -317,8 +319,10 @@ namespace View
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.lsb_Coalitie);
+            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.bt_add_coalitie);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.cb_Uitslagregels);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
@@ -333,16 +337,17 @@ namespace View
             this.bt_add_coalitie.Name = "bt_add_coalitie";
             this.bt_add_coalitie.Size = new System.Drawing.Size(94, 29);
             this.bt_add_coalitie.TabIndex = 13;
-            this.bt_add_coalitie.Text = "button1";
+            this.bt_add_coalitie.Text = "Add";
             this.bt_add_coalitie.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cb_Uitslagregels
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(80, 8);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(596, 28);
-            this.comboBox2.TabIndex = 12;
+            this.cb_Uitslagregels.FormattingEnabled = true;
+            this.cb_Uitslagregels.Location = new System.Drawing.Point(80, 8);
+            this.cb_Uitslagregels.Name = "cb_Uitslagregels";
+            this.cb_Uitslagregels.Size = new System.Drawing.Size(596, 28);
+            this.cb_Uitslagregels.TabIndex = 12;
+            this.cb_Uitslagregels.SelectedIndexChanged += new System.EventHandler(this.cb_Uitslagregels_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -352,6 +357,24 @@ namespace View
             this.label10.Size = new System.Drawing.Size(55, 20);
             this.label10.TabIndex = 11;
             this.label10.Text = "Uitslag";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(376, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "De volgende partijen zijn geselecteerd voor de coalitie:";
+            // 
+            // lsb_Coalitie
+            // 
+            this.lsb_Coalitie.FormattingEnabled = true;
+            this.lsb_Coalitie.ItemHeight = 20;
+            this.lsb_Coalitie.Location = new System.Drawing.Point(9, 90);
+            this.lsb_Coalitie.Name = "lsb_Coalitie";
+            this.lsb_Coalitie.Size = new System.Drawing.Size(775, 324);
+            this.lsb_Coalitie.TabIndex = 15;
             // 
             // CoalitieVormer
             // 
@@ -406,8 +429,10 @@ namespace View
         private System.Windows.Forms.Label lb_maxZetels;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button bt_add_coalitie;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_Uitslagregels;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListBox lsb_Coalitie;
+        private System.Windows.Forms.Label label9;
     }
 }
 
