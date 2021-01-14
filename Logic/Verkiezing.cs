@@ -48,7 +48,7 @@ namespace Logic
         {
             return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
         }
-        public bool SelectUitslagregel(Uitslagregel regel)
+        public bool AddSelectedUitslagregel(Uitslagregel regel)
         {
             if (_geselecteerdeUitlsagen.Any(uitslagregel => uitslagregel.Partij.Orde == regel.Partij.Orde))
             {

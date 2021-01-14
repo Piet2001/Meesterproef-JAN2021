@@ -73,6 +73,19 @@ namespace View
 
         }
 
+        private void bt_add_coalitie_Click(object sender, EventArgs e)
+        {
+            if (_huidigeVerkiezing.AddSelectedUitslagregel(_huidigeUitslagregel))
+            {
+                MessageBox.Show("Uitslag toegevoegd", "Succes");
+                Update_Coalitie();
+            }
+            else
+            {
+                MessageBox.Show("Selectie kan niet worden toegevoegd!", "Error");
+            }
+        }
+
         #endregion
 
         #region ComboBox
@@ -125,8 +138,12 @@ namespace View
         {
             lsb_uitslagen.DataSource = null;
             lsb_uitslagen.DataSource = _huidigeVerkiezing.GetUitslagregels();
+
             nud_zetels.Maximum = _huidigeVerkiezing.VrijeZetels;
             lb_maxZetels.Text = $"(max: {_huidigeVerkiezing.VrijeZetels})";
+
+            cb_Uitslagregels.DataSource = null;
+            cb_Uitslagregels.DataSource = _huidigeVerkiezing.GetUitslagregels();
         }
 
         private void EmmtyInputPartij()
@@ -135,7 +152,11 @@ namespace View
             tb_Orde.Text = null;
             tb_naam.Text = null;
         }
-
+        private void Update_Coalitie()
+        {
+            lsb_Coalitie.DataSource = null;
+            lsb_Coalitie.DataSource = _huidigeVerkiezing.GetGeselecteerdeUitslagregels();
+        }
         #endregion
 
     }

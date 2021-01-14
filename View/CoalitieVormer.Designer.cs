@@ -55,11 +55,11 @@ namespace View
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lsb_Coalitie = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.cb_Uitslagregels = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lsb_Coalitie = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -331,6 +331,24 @@ namespace View
             this.tabPage3.Text = "Maak Coalitie";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lsb_Coalitie
+            // 
+            this.lsb_Coalitie.FormattingEnabled = true;
+            this.lsb_Coalitie.ItemHeight = 20;
+            this.lsb_Coalitie.Location = new System.Drawing.Point(9, 90);
+            this.lsb_Coalitie.Name = "lsb_Coalitie";
+            this.lsb_Coalitie.Size = new System.Drawing.Size(775, 324);
+            this.lsb_Coalitie.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 66);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(376, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "De volgende partijen zijn geselecteerd voor de coalitie:";
+            // 
             // bt_add_coalitie
             // 
             this.bt_add_coalitie.Location = new System.Drawing.Point(690, 8);
@@ -339,6 +357,7 @@ namespace View
             this.bt_add_coalitie.TabIndex = 13;
             this.bt_add_coalitie.Text = "Add";
             this.bt_add_coalitie.UseVisualStyleBackColor = true;
+            this.bt_add_coalitie.Click += new System.EventHandler(this.bt_add_coalitie_Click);
             // 
             // cb_Uitslagregels
             // 
@@ -357,24 +376,6 @@ namespace View
             this.label10.Size = new System.Drawing.Size(55, 20);
             this.label10.TabIndex = 11;
             this.label10.Text = "Uitslag";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(376, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "De volgende partijen zijn geselecteerd voor de coalitie:";
-            // 
-            // lsb_Coalitie
-            // 
-            this.lsb_Coalitie.FormattingEnabled = true;
-            this.lsb_Coalitie.ItemHeight = 20;
-            this.lsb_Coalitie.Location = new System.Drawing.Point(9, 90);
-            this.lsb_Coalitie.Name = "lsb_Coalitie";
-            this.lsb_Coalitie.Size = new System.Drawing.Size(775, 324);
-            this.lsb_Coalitie.TabIndex = 15;
             // 
             // CoalitieVormer
             // 
