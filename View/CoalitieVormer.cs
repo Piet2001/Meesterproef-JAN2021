@@ -156,6 +156,7 @@ namespace View
         {
             lsb_Coalitie.DataSource = null;
             lsb_Coalitie.DataSource = _huidigeVerkiezing.GetGeselecteerdeUitslagregels();
+            bt_save_coalitie.Enabled = _huidigeVerkiezing.CoalitiePossible();
         }
         #endregion
 

@@ -12,7 +12,10 @@ namespace Logic
         public int Zetels { get; }
         public ICoalitie Coalitie { get; }
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
-        public int CoalitieZetels => _geselecteerdeUitlsagen.Sum(x => x.Zetels);
+        private int minzetels;
+
+
+
 
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
         private List<Uitslagregel> _geselecteerdeUitlsagen = new List<Uitslagregel>();
@@ -22,6 +25,15 @@ namespace Logic
             Naam = naam;
             Datum = datum;
             Zetels = zetels;
+
+            if (zetels % 2 == 0)
+            {
+                minzetels = Zetels / 2 + 1;
+            }
+            else
+            {
+                minzetels = (int)Math.Ceiling(Zetels / 2.0);
+            }
         }
 
         public bool AddUitslagregel(Partij partij, int stemmen, double percentage, int zetels)
@@ -56,6 +68,11 @@ namespace Logic
             }
             _geselecteerdeUitlsagen.Add(regel);
             return true;
+        }
+
+        public bool CoalitiePossible()
+        {
+            return minzetels <= _geselecteerdeUitlsagen.Sum(x => x.Zetels);
         }
 
         public override string ToString()

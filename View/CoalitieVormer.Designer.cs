@@ -60,6 +60,7 @@ namespace View
             this.bt_add_coalitie = new System.Windows.Forms.Button();
             this.cb_Uitslagregels = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.bt_save_coalitie = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -319,6 +320,7 @@ namespace View
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.bt_save_coalitie);
             this.tabPage3.Controls.Add(this.lsb_Coalitie);
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.bt_add_coalitie);
@@ -377,6 +379,16 @@ namespace View
             this.label10.TabIndex = 11;
             this.label10.Text = "Uitslag";
             // 
+            // bt_save_coalitie
+            // 
+            this.bt_save_coalitie.Enabled = false;
+            this.bt_save_coalitie.Location = new System.Drawing.Point(690, 44);
+            this.bt_save_coalitie.Name = "bt_save_coalitie";
+            this.bt_save_coalitie.Size = new System.Drawing.Size(94, 29);
+            this.bt_save_coalitie.TabIndex = 16;
+            this.bt_save_coalitie.Text = "Save";
+            this.bt_save_coalitie.UseVisualStyleBackColor = true;
+            // 
             // CoalitieVormer
             // 
             this.AllowDrop = true;
@@ -434,6 +446,7 @@ namespace View
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListBox lsb_Coalitie;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button bt_save_coalitie;
     }
 }
 
