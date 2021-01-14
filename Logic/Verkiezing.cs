@@ -12,7 +12,7 @@ namespace Logic
         public int Zetels { get; }
         public ICoalitie Coalitie { get; }
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
-        
+
         private int _minzetels;
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
         private List<Uitslagregel> _geselecteerdeUitlsagen = new List<Uitslagregel>();
