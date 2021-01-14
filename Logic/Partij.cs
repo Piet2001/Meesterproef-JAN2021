@@ -14,5 +14,10 @@ namespace Logic
             Naam = naam;
             Lijsttrekker = lijsttrekker;
         }
+
+        public override string ToString()
+        {
+            return $"{Orde} - {Naam} - {Lijsttrekker}";
+        }
     }
 }
