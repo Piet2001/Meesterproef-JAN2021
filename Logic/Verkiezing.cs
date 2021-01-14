@@ -39,7 +39,7 @@ namespace Logic
 
         public IEnumerable<Uitslagregel> GetUitslagregels()
         {
-            return _uitslag;
+            return _uitslag.OrderByDescending(x => x.Zetels).ToList();
         }
 
         public bool CheckPossibleCoalitie(List<Uitslagregel> sellectedUitslagregels)

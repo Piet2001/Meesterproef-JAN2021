@@ -41,9 +41,10 @@ namespace View
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bt_saveUitslag = new System.Windows.Forms.Button();
             this.cb_verkiezing = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lsb_uitslagen = new System.Windows.Forms.ListBox();
             this.nud_zetels = new System.Windows.Forms.NumericUpDown();
             this.nud_percentage = new System.Windows.Forms.NumericUpDown();
             this.nud_stemmen = new System.Windows.Forms.NumericUpDown();
@@ -52,6 +53,7 @@ namespace View
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lb_maxZetels = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -168,9 +170,11 @@ namespace View
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lb_maxZetels);
+            this.tabPage2.Controls.Add(this.bt_saveUitslag);
             this.tabPage2.Controls.Add(this.cb_verkiezing);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.lsb_uitslagen);
             this.tabPage2.Controls.Add(this.nud_zetels);
             this.tabPage2.Controls.Add(this.nud_percentage);
             this.tabPage2.Controls.Add(this.nud_stemmen);
@@ -186,6 +190,16 @@ namespace View
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Uitslagen";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // bt_saveUitslag
+            // 
+            this.bt_saveUitslag.Location = new System.Drawing.Point(482, 84);
+            this.bt_saveUitslag.Name = "bt_saveUitslag";
+            this.bt_saveUitslag.Size = new System.Drawing.Size(137, 80);
+            this.bt_saveUitslag.TabIndex = 11;
+            this.bt_saveUitslag.Text = "SAVE";
+            this.bt_saveUitslag.UseVisualStyleBackColor = true;
+            this.bt_saveUitslag.Click += new System.EventHandler(this.bt_saveUitslag_Click);
             // 
             // cb_verkiezing
             // 
@@ -205,14 +219,14 @@ namespace View
             this.label8.TabIndex = 9;
             this.label8.Text = "Verkiezing";
             // 
-            // listBox1
+            // lsb_uitslagen
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(9, 203);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(775, 204);
-            this.listBox1.TabIndex = 8;
+            this.lsb_uitslagen.FormattingEnabled = true;
+            this.lsb_uitslagen.ItemHeight = 20;
+            this.lsb_uitslagen.Location = new System.Drawing.Point(9, 203);
+            this.lsb_uitslagen.Name = "lsb_uitslagen";
+            this.lsb_uitslagen.Size = new System.Drawing.Size(775, 204);
+            this.lsb_uitslagen.TabIndex = 8;
             // 
             // nud_zetels
             // 
@@ -223,6 +237,7 @@ namespace View
             // 
             // nud_percentage
             // 
+            this.nud_percentage.DecimalPlaces = 2;
             this.nud_percentage.Location = new System.Drawing.Point(105, 106);
             this.nud_percentage.Name = "nud_percentage";
             this.nud_percentage.Size = new System.Drawing.Size(150, 27);
@@ -285,6 +300,15 @@ namespace View
             this.label4.TabIndex = 0;
             this.label4.Text = "Partij";
             // 
+            // lb_maxZetels
+            // 
+            this.lb_maxZetels.AutoSize = true;
+            this.lb_maxZetels.Location = new System.Drawing.Point(260, 149);
+            this.lb_maxZetels.Name = "lb_maxZetels";
+            this.lb_maxZetels.Size = new System.Drawing.Size(62, 20);
+            this.lb_maxZetels.TabIndex = 12;
+            this.lb_maxZetels.Text = "(max: 0)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -321,7 +345,7 @@ namespace View
         private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.ListBox lsb_Partijen;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lsb_uitslagen;
         private System.Windows.Forms.NumericUpDown nud_zetels;
         private System.Windows.Forms.NumericUpDown nud_percentage;
         private System.Windows.Forms.NumericUpDown nud_stemmen;
@@ -331,6 +355,8 @@ namespace View
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cb_verkiezing;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button bt_saveUitslag;
+        private System.Windows.Forms.Label lb_maxZetels;
     }
 }
 

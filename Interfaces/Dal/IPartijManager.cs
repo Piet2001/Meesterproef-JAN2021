@@ -6,7 +6,7 @@ namespace Interfaces.Dal
 {
     public interface IPartijManager
     {
-        public List<PartijDTO> GetAllePartijen();
+        public List<PartijDto> GetAllePartijen();
         public bool AddPartij(IPartij partij);
     }
 }

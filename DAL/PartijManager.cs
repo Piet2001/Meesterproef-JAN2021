@@ -12,9 +12,9 @@ namespace DAL
     {
         private readonly string _connectionString = "Server=127.0.0.1;Database=coalitievormer;Uid=root;Pwd=;";
 
-        public List<PartijDTO> GetAllePartijen()
+        public List<PartijDto> GetAllePartijen()
         {
-            List<PartijDTO> partijen = new List<PartijDTO>();
+            List<PartijDto> partijen = new List<PartijDto>();
 
             using (MySqlConnection conn = new MySqlConnection(_connectionString))
             {
@@ -25,7 +25,7 @@ namespace DAL
                     var reader = query.ExecuteReader();
                     while (reader.Read())
                     {
-                        var partij = new PartijDTO();
+                        var partij = new PartijDto();
                         {
                             partij.Orde = reader.GetString(0);
                             partij.Naam = reader.GetString(1);

@@ -56,6 +56,21 @@ namespace View
             cb_partijen.DataSource = _partijCollection.GetAllePartijen();
         }
 
+        private void EmmtyInputVerkiezing()
+        {
+            nud_stemmen.Value = 0;
+            nud_percentage.Value = 0.00m;
+            nud_zetels.Value = 0;
+        }
+
+        private void Update_Verkiezing()
+        {
+            lsb_uitslagen.DataSource = null;
+            lsb_uitslagen.DataSource = huidigeVerkiezing.GetUitslagregels();
+            nud_zetels.Maximum = huidigeVerkiezing.VrijeZetels;
+            lb_maxZetels.Text = $"(max: {huidigeVerkiezing.VrijeZetels}";
+        }
+
         private void EmmtyInputPartij()
         {
             tb_Lijsttrekker.Text = null;
@@ -78,6 +93,26 @@ namespace View
             {
                 Huidigepartij = cb_partijen.SelectedItem as Partij;
             }
+        }
+
+        private void bt_saveUitslag_Click(object sender, EventArgs e)
+        {
+            int stemmen = (int)nud_stemmen.Value;
+            double percentage = (double)nud_percentage.Value;
+            int zetels = (int) nud_zetels.Value;
+
+            bool updated = huidigeVerkiezing.AddUitslagregel(Huidigepartij, stemmen, percentage, zetels);
+
+            if (updated)
+            {
+                MessageBox.Show("Uitslag toegevoegd", "Succes");
+                Update_Verkiezing();
+            }
+            else
+            {
+                MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
+            }
+
         }
     }
 }
