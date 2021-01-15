@@ -8,11 +8,9 @@ namespace Logic.Collections
     {
         private IPartijManager _partijManager = Factory.Factory.GetPartijManager();
 
-        public bool AddPartij(string orde, string naam, string lijsttrekker)
+        public bool PartijToevoegen(string orde, string naam, string lijsttrekker)
         {
-            bool toegevoegd = _partijManager.AddPartij(new Partij(orde, naam, lijsttrekker));
-
-            return toegevoegd;
+            return  _partijManager.PartijToevoegen(new Partij(orde, naam, lijsttrekker));
         }
 
         public IReadOnlyCollection<Partij> GetAllePartijen()
@@ -25,6 +23,11 @@ namespace Logic.Collections
             }
 
             return partijen;
+        }
+
+        public bool UpdatePartij(string orde, string naam, string lijsttrekker)
+        {
+            return _partijManager.UpdatePartij(new Partij(orde, naam, lijsttrekker));
         }
     }
 }

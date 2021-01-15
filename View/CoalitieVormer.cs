@@ -21,7 +21,7 @@ namespace View
         {
             InitializeComponent();
             Update_Partijen();
-            _verkiezingCollection.AddVerkiezing();
+            _verkiezingCollection.VerkiezingAanmaken("Test Verkiezing",new DateTime(2021,01,19),150);
             cb_verkiezing.DataSource = _verkiezingCollection.GetAlleVerkiezingen();
         }
 
@@ -40,16 +40,20 @@ namespace View
             }
             else
             {
-                if (_partijCollection.AddPartij(orde, naam, lijsttrekker))
+                if (_partijCollection.PartijToevoegen(orde, naam, lijsttrekker))
                 {
                     MessageBox.Show("Partij Toegevoegd", "Succes");
-                    Update_Partijen();
-                    EmmtyInputPartij();
+                }
+                else if (_partijCollection.GetAllePartijen().Any(x => x.Orde == orde))
+                {
+                    _partijCollection.UpdatePartij(orde, naam, lijsttrekker);
                 }
                 else
                 {
                     MessageBox.Show("Partij kon niet worden toegevoegd", "Error");
                 }
+                Update_Partijen();
+                EmmtyInputPartij();
             }
         }
 
@@ -97,6 +101,10 @@ namespace View
             {
                 Coalitie coalitie = _huidigeVerkiezing.GetCoalitie();
                 MessageBox.Show(coalitie.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Coalitie voldoet niet aan de regels", "Error");
             }
         }
 
