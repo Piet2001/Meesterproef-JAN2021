@@ -7,12 +7,12 @@ namespace Factory
     {
         public static IPartijManager GetPartijManager()
         {
-            return new DAL.PartijManager();
+            return new PartijManager(Data.Connectionstring());
         }
 
         public static IVerkiezingsManager GetVerkiezingsManager()
         {
-            return new DAL.Verkiezingsmanager();
+            return new Verkiezingsmanager();
         }
     }
 }

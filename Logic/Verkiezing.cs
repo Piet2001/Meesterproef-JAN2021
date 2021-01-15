@@ -13,7 +13,7 @@ namespace Logic
         public int VrijeZetels => Zetels - _uitslag.Sum(x => x.Zetels);
 
         private int _minzetels;
-        private Coalitie Coalitie;
+        private Coalitie _coalitie;
         private List<Uitslagregel> _uitslag = new List<Uitslagregel>();
         private List<IUitslagregel> _geselecteerdeUitlsagen = new List<IUitslagregel>();
 
@@ -57,7 +57,7 @@ namespace Logic
         {
             return _geselecteerdeUitlsagen.OrderByDescending(x => x.Zetels).ToList();
         }
-        public bool AddGeselecteerdeUitslagregel(Uitslagregel regel)
+        public bool SelecteerRegel(Uitslagregel regel)
         {
             // partij staat nog niet tussen de geselecteerde
             if (_geselecteerdeUitlsagen.Any(uitslagregel => uitslagregel.Partij.Orde == regel.Partij.Orde))
@@ -68,7 +68,7 @@ namespace Logic
             return true;
         }
 
-        public void removeGeselecteerdUitslagregel(Uitslagregel regel)
+        public void RemoveGeselecteerdUitslagregel(Uitslagregel regel)
         {
             _geselecteerdeUitlsagen.Remove(regel);
         }
@@ -82,7 +82,7 @@ namespace Logic
         {
             if (MinimaleAantalZetelsBehaald())
             {
-                Coalitie = new Coalitie("Test Coalitie", _geselecteerdeUitlsagen);
+                _coalitie = new Coalitie("Test Coalitie", _geselecteerdeUitlsagen);
                 return true;
             }
 
@@ -91,7 +91,7 @@ namespace Logic
 
         public Coalitie GetCoalitie()
         {
-            return Coalitie;
+            return _coalitie;
         }
         public override string ToString()
         {

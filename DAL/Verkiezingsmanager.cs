@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Interfaces.Dal;
 using Interfaces.DTO;
 using Interfaces.Logic;
@@ -9,11 +8,11 @@ namespace DAL
 {
     public class Verkiezingsmanager : IVerkiezingsManager
     {
-        private List<IVerkiezing> verkiezingen = new List<IVerkiezing>();
+        private readonly List<IVerkiezing> _verkiezingen = new List<IVerkiezing>();
         public List<VerkiezingsDto> GetAlleVerkiezingen()
         {
             List<VerkiezingsDto> dtos = new List<VerkiezingsDto>();
-            foreach (var verkiezing in verkiezingen)
+            foreach (var verkiezing in _verkiezingen)
             {
                 dtos.Add(new VerkiezingsDto()
                 {
@@ -27,7 +26,7 @@ namespace DAL
 
         public bool VerkiezingToevoegen(IVerkiezing verkiezing)
         {
-            verkiezingen.Add(verkiezing);
+            _verkiezingen.Add(verkiezing);
             return true;
         }
 

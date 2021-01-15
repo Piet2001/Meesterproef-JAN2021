@@ -10,8 +10,12 @@ namespace DAL
 {
     public class PartijManager : IPartijManager
     {
-        private readonly string _connectionString = "Server=127.0.0.1;Database=coalitievormer;Uid=root;Pwd=;";
-
+        private readonly string _connectionString;
+        
+        public PartijManager(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
         public List<PartijDto> GetAllePartijen()
         {
             List<PartijDto> partijen = new List<PartijDto>();

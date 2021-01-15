@@ -21,7 +21,7 @@ namespace View
         {
             InitializeComponent();
             Update_Partijen();
-            _verkiezingCollection.VerkiezingAanmaken("Test Verkiezing",new DateTime(2021,01,19),150);
+            _verkiezingCollection.VerkiezingAanmaken("Test Verkiezing", new DateTime(2021, 01, 19), 150);
             cb_verkiezing.DataSource = _verkiezingCollection.GetAlleVerkiezingen();
         }
 
@@ -40,17 +40,16 @@ namespace View
             }
             else
             {
-                if (_partijCollection.PartijToevoegen(orde, naam, lijsttrekker))
+                if (!_partijCollection.PartijToevoegen(orde, naam, lijsttrekker))
                 {
-                    MessageBox.Show("Partij Toegevoegd", "Succes");
-                }
-                else if (_partijCollection.GetAllePartijen().Any(x => x.Orde == orde))
-                {
-                    _partijCollection.UpdatePartij(orde, naam, lijsttrekker);
-                }
-                else
-                {
-                    MessageBox.Show("Partij kon niet worden toegevoegd", "Error");
+                    if (_partijCollection.GetAllePartijen().Any(x => x.Orde == orde))
+                    {
+                        _partijCollection.UpdatePartij(orde, naam, lijsttrekker);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Partij kon niet worden toegevoegd", "Error");
+                    }
                 }
                 Update_Partijen();
                 EmmtyInputPartij();
@@ -65,22 +64,21 @@ namespace View
 
             bool updated = _huidigeVerkiezing.AddUitslagregel(_huidigepartij, stemmen, percentage, zetels);
 
-            if (updated)
+            if (!updated)
             {
-                MessageBox.Show("Uitslag toegevoegd", "Succes");
-            }
-            else if (_huidigeVerkiezing.GetUitslagregels().Any(x=>x.Partij.Orde == _huidigepartij.Orde))
-            {
-                DialogResult result = MessageBox.Show($"Weet U zeker dat u de uitslag van {_huidigepartij.Orde} wilt aanpassen",
-                    "waarschuwing", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                if (_huidigeVerkiezing.GetUitslagregels().Any(x => x.Partij.Orde == _huidigepartij.Orde))
                 {
-                    _huidigeUitslagregel.Update(stemmen, percentage, zetels);
+                    DialogResult result = MessageBox.Show($"Weet U zeker dat u de uitslag van {_huidigepartij.Orde} wilt aanpassen",
+                        "waarschuwing", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        _huidigeUitslagregel.Update(stemmen, percentage, zetels);
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
+                else
+                {
+                    MessageBox.Show("Uitslag is niet geaccepteerd", "Error");
+                }
             }
             Update_Verkiezing();
             EmmtyInputVerkiezing();
@@ -88,9 +86,8 @@ namespace View
 
         private void bt_add_coalitie_Click(object sender, EventArgs e)
         {
-            if (_huidigeVerkiezing.AddGeselecteerdeUitslagregel(_huidigeUitslagregel))
+            if (_huidigeVerkiezing.SelecteerRegel(_huidigeUitslagregel))
             {
-                MessageBox.Show("Uitslag toegevoegd", "Succes");
                 Update_Coalitie();
             }
         }
@@ -194,7 +191,7 @@ namespace View
         private void lsb_Coalitie_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var Uitslagregel = lsb_Coalitie.SelectedItem as Uitslagregel;
-            _huidigeVerkiezing.removeGeselecteerdUitslagregel(Uitslagregel);
+            _huidigeVerkiezing.RemoveGeselecteerdUitslagregel(Uitslagregel);
             Update_Coalitie();
         }
     }

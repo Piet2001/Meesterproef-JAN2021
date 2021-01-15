@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security;
 using Interfaces.Dal;
 using Interfaces.DTO;
 using Interfaces.Logic;
@@ -9,7 +8,7 @@ namespace Logic.Collections
 {
     public class VerkiezingCollection
     {
-        private IVerkiezingsManager _verkiezingsManager = Factory.Factory.GetVerkiezingsManager();
+        private readonly IVerkiezingsManager _verkiezingsManager = Factory.Factory.GetVerkiezingsManager();
         public void VerkiezingAanmaken(string naam, DateTime datum, int zetels)
         {
             var verkiezing = new Verkiezing(naam, datum, zetels);
