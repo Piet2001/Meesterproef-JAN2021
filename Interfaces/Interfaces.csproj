@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Factory\Factory.csproj" />
-    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    <Folder Include="Dal\" />
   </ItemGroup>
 
 </Project>
